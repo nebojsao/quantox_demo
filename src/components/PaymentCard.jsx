@@ -36,7 +36,7 @@ const useStyles = makeStyles({
         margin: 16
     }
 });
-export const PaymentCard = ({ username, cardNumber, expiresOn, logo }) => {
+export const PaymentCard = ({ username, cardNumber, logo }) => {
     const classes = useStyles();
     return (
         <Grid container item xs={12} justify={'center'}>
@@ -73,7 +73,7 @@ export const PaymentCard = ({ username, cardNumber, expiresOn, logo }) => {
                         </Grid>
                         <Grid item>
                             <Typography variant={'h6'} className={classes.expiresOn} noWrap>
-                                {expiresOn || `0 / 00`}
+                                {`0 / 00`}
                             </Typography>
                         </Grid>
                     </Grid>

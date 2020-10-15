@@ -13,6 +13,7 @@ import masterCardLogo from '../assets/mastercard_logo.png';
 import { useDispatch } from 'react-redux';
 import { addNewCard } from '../redux/actions/cardActions';
 import { setNotification } from '../redux/actions/notificationActions';
+import DateSelector from '../components/DateSelector';
 
 const cardOptions = [
     { label: 'VISA', logo: visaLogo },
@@ -25,7 +26,6 @@ export const AddCardPage = () => {
     const dispatch = useDispatch();
     const [username, setUsername] = useState('');
     const [cardNumber, setCardNumber] = useState('');
-    const [expiresOn, setExpiresOn] = useState('');
     const [cardType, setCardType] = useState(cardOptions[0]);
     const [saveDisabled, setSaveDisabled] = useState(true);
 
@@ -47,12 +47,6 @@ export const AddCardPage = () => {
         }
     };
 
-    const handleExpiresOnChange = (e) => {
-        if (e.target.value.length <= 5) {
-            setExpiresOn(e.target.value);
-        }
-    };
-
     const handleCardsOverviewClick = () => {
         history.push(routes.VIEW_CARDS);
     };
@@ -62,7 +56,7 @@ export const AddCardPage = () => {
     });
 
     const isSaveDisabled = () => {
-        if (username.length < 1 || cardNumber.length < 1 || expiresOn.length < 1) {
+        if (username.length < 1 || cardNumber.length < 1) {
             setSaveDisabled(true);
         } else {
             setSaveDisabled(false);
@@ -73,12 +67,7 @@ export const AddCardPage = () => {
             <Grid container spacing={0}>
                 <Button onClick={handleCardsOverviewClick}>Cards Overview</Button>
                 <Header text={'Add New Card'} />
-                <PaymentCard
-                    username={username}
-                    cardNumber={cardNumber}
-                    expiresOn={expiresOn}
-                    logo={cardType?.logo}
-                />
+                <PaymentCard username={username} cardNumber={cardNumber} logo={cardType?.logo} />
                 <Grid container item xs={12} justify={'center'} style={{ marginTop: 16 }}>
                     <Autocomplete
                         value={cardType}
@@ -112,13 +101,7 @@ export const AddCardPage = () => {
                     />
                 </Grid>
                 <Grid container item xs={12} justify={'center'} style={{ marginTop: 16 }}>
-                    <TextField
-                        placeholder={'MM/YY'}
-                        label='Expires On'
-                        variant='outlined'
-                        value={expiresOn}
-                        onChange={handleExpiresOnChange}
-                    />
+                    <DateSelector />
                 </Grid>
                 <Grid container justify={'center'} style={{ marginTop: 16 }}>
                     <Button
