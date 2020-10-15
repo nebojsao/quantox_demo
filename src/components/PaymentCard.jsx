@@ -86,7 +86,6 @@ export const PaymentCard = ({ username, cardNumber, logo }) => {
 PaymentCard.propTypes = {
     username: PropTypes.string.isRequired,
     cardNumber: PropTypes.string.isRequired,
-    expiresOn: PropTypes.string.isRequired,
     logo: PropTypes.any
 };
 
