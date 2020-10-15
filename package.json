@@ -1,23 +1,51 @@
 {
-  "name": "quantox-app",
-  "version": "0.1.0",
+  "name": "react-web-app",
+  "version": "1.0.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-scripts": "3.4.3"
-  },
+  "homepage": ".",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "clean": "rm -rf node_modules && npm cache clear -f && rm -rf build",
+    "lint": " eslint --quiet --ext .js,.jsx,.tsx,.ts src",
+    "lint:fix": " eslint --quiet --ext .js,.jsx,.tsx,.ts src --fix",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "env-cmd -e prod react-scripts build",
+    "start": "env-cmd -e local react-scripts start",
+    "start:prod": "env-cmd -e prod react-scripts build && env-cmd -e prod node server.js"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.0.4",
+    "@testing-library/user-event": "^12.1.7",
+    "prop-types": "^15.7.2",
+    "redux-logger": "^3.0.6",
+    "eslint": "^6.6.0",
+    "prettier": "^2.1.2",
+    "eslint-plugin-react": "^7.21.4",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "browserslist": {
     "production": [

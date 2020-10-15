@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { customTheme } from './config/theme';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import GlobalNotification from './components/GlobalNotification';
+import Content from './views/Content';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export const App = () => {
+    return (
+        <>
+            <ThemeProvider theme={customTheme}>
+                <CssBaseline />
+                <GlobalNotification />
+                <Content />
+            </ThemeProvider>
+        </>
+    );
+};
 
 export default App;
