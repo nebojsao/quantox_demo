@@ -2,7 +2,6 @@
   "name": "react-web-app",
   "version": "1.0.0",
   "private": true,
-  "homepage": ".",
   "scripts": {
     "clean": "rm -rf node_modules && npm cache clear -f && rm -rf build",
     "lint": " eslint --quiet --ext .js,.jsx,.tsx,.ts src",
