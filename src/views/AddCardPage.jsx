@@ -94,6 +94,7 @@ export const AddCardPage = () => {
                 </Grid>
                 <Grid container item xs={12} justify={'center'} style={{ marginTop: 16 }}>
                     <TextField
+                        placeholder={'Card owner name'}
                         label='Name'
                         variant='outlined'
                         value={username}
@@ -102,6 +103,7 @@ export const AddCardPage = () => {
                 </Grid>
                 <Grid container item xs={12} justify={'center'} style={{ marginTop: 16 }}>
                     <TextField
+                        placeholder={'xxxx-xxxx-xxxx-xxxx'}
                         type='number'
                         label='Card Number'
                         variant='outlined'
@@ -111,6 +113,7 @@ export const AddCardPage = () => {
                 </Grid>
                 <Grid container item xs={12} justify={'center'} style={{ marginTop: 16 }}>
                     <TextField
+                        placeholder={'MM/YY'}
                         label='Expires On'
                         variant='outlined'
                         value={expiresOn}
